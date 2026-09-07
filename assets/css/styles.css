@@ -272,20 +272,20 @@ p{margin:0 0 1em}
 .tp{background:#ffffff0f; border:1px solid #ffffff1f; border-radius:12px; padding:16px; display:flex; flex-direction:column}
 .tp h3{font-size:17px; margin:0 0 8px; color:#fff}
 .tp p{font-size:14.5px; color:#c8d8c7; margin:0}
-.tp__ph, .tp__shot{
-  display:block; position:relative; aspect-ratio:4/3; border-radius:8px; overflow:hidden; margin-bottom:14px;
+.touchpoints__note{margin:0 0 4px; max-width:74ch}
+.tp__shot{
+  display:block; position:relative; aspect-ratio:3/2; border-radius:8px; overflow:hidden;
+  margin:0 0 14px; border:1px solid #ffffff2e; background:#0d4227;
 }
-.tp__ph{
-  background:
-    repeating-linear-gradient(135deg,#ffffff08 0 12px,#ffffff00 12px 24px), #0d4227;
-  border:1px dashed #ffffff3d; display:grid; place-content:center;
-}
-.tp__ph span{font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; color:#8fae91}
-.tp__img{width:100%; height:100%; object-fit:cover}
-.tp__shot{border:1px solid #ffffff2e}
+.tp__img{width:100%; height:100%; object-fit:cover; display:block}
 .tp__badge{
   position:absolute; left:10px; bottom:10px; background:var(--gold); color:var(--green-ink);
   font:700 12px/1 var(--sans); padding:7px 10px; border-radius:999px;
+}
+/* Says plainly that the wall, boards, banners and plaque are not built yet. */
+.tp__badge--mock{
+  background:#0b2c1cd9; color:#dfe9de; border:1px solid #ffffff40;
+  font-weight:600; letter-spacing:.04em;
 }
 .tp--rules{background:var(--navy); border-color:#ffffff2e; justify-content:center}
 .tp--rules h3{color:var(--gold)}

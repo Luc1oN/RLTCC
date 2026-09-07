@@ -84,32 +84,53 @@ address, and paste it into `formEndpoint` in `config.js`. Nothing else changes.
 
 ---
 
-## Swapping in real photographs
+## The imagery, and what is real in it
 
-Four slots on the page are marked "Photograph to come" — the gable wall, the
-noticeboards, the hallway and the named-facility plaque. In `index.html` each one is a
-short block that looks like this:
+Two of the pictures on the page are real photographs of the club: the hero (the courts
+looking towards the clubhouse) and the court board close-up, which is that same
+photograph with its lettering digitally removed so the live preview can draw on it.
 
-```html
-<div class="tp__ph" aria-hidden="true"><span>Photograph to come</span></div>
+The other four — the gable wall, the noticeboards, the hallway banners and the seating
+plaque — are **concept mockups**. Nothing on that list has been built yet. Each one is
+labelled "Concept mockup" on the page, and there is a line above the gallery saying so
+in plain English, so nobody can mistake them for photographs of something that exists.
+
+Every mockup arrived carrying real company logos (Deloitte, EY, Heineken, Kearys and
+others) and invented business names. All of it has been removed. `tools/neutralise.py`
+is the script that did it: it finds each plaque, cell, banner and panel, samples the
+surface's own colour, and paints a "Your business here" placeholder back on in the
+photograph's own perspective. It is kept in the repo as a record of exactly what was
+changed, and can be re-run if a new mockup comes in:
+
+```bash
+python3 tools/neutralise.py
 ```
 
-Replace the whole line with:
+It reads only from the original mockups and writes only into `assets/img/`.
 
-```html
-<img class="tp__img" src="assets/img/wall.jpg" width="800" height="600"
-     alt="The Friends of Rushbrooke wall on the clubhouse gable">
-```
-
-…having first uploaded `wall.jpg` into `assets/img/`. Keep photos under about 300 KB —
-anything bigger and the page gets slow on mobile data. There's a comment above each
-placeholder saying which photograph belongs there.
-
-**No third-party logos, invented company names, testimonials or partner logos go on
-this site.** The nine slots in the footer stay empty and say "Your business here"
+**Nothing else goes on this site**: no third-party logo, no invented company name, no
+testimonial, no partner logo. An invented but plausible business name is as misleading
+as a real one. The nine slots in the footer stay empty and say "Your business here"
 until real partners have signed.
 
----
+### Replacing a mockup with a real photograph
+
+Once the wall is up, or the banners are printed, or you get a good shot of the
+noticeboards during a tournament week, swapping one in is a two-line change. In
+`index.html` each mockup looks like this:
+
+```html
+<figure class="tp__shot tp__shot--mock">
+  <img class="tp__img" src="assets/img/wall.jpg" width="1200" height="800"
+       loading="lazy" decoding="async" alt="…">
+  <figcaption class="tp__badge tp__badge--mock">Concept mockup</figcaption>
+</figure>
+```
+
+Upload the new photograph into `assets/img/`, change `src`, `width`, `height` and the
+`alt` text — then **delete the `<figcaption>` line**, because it is no longer a mockup.
+Keep photos under about 300 KB and roughly 3:2 (landscape); anything bigger and the
+page gets slow on mobile data.
 
 ## What's in here
 
@@ -119,8 +140,14 @@ assets/css/styles.css          all the styling
 assets/js/config.js            ← the file you edit
 assets/js/main.js              the behaviour; no need to touch it
 assets/img/hero-courts.jpg     real photo of the courts and clubhouse
-assets/img/court-net-board.jpg the same view, with the net board left blank
+assets/img/court-net-board.jpg the same view, with the net board wiped blank
+assets/img/court-board-closeup.jpg  a still of the preview, for the gallery card
+assets/img/wall.jpg            concept mockup — gable wall, branding removed
+assets/img/noticeboards.jpg    concept mockup — noticeboards, branding removed
+assets/img/interior-banners.jpg concept mockup — hallway banners, branding removed
+assets/img/named-facilities.jpg concept mockup — seating plaque, branding removed
 assets/img/crest-*.png         the crest, exported from the 2017 Illustrator source
+tools/neutralise.py            the script that stripped the branding out of the mockups
 CNAME                          the custom subdomain
 .nojekyll                      tells GitHub Pages not to process the files
 ```
