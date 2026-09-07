@@ -48,24 +48,37 @@ Four things, in the order they'll probably clear:
 
 ## Putting it on the internet
 
-1. Create a new repo on GitHub called `rushbrooke-partners` and upload these files
-   (or push this folder to it).
-2. Repo → **Settings** → **Pages** → Source: **Deploy from a branch**, Branch:
-   `main`, folder: `/ (root)`. Save.
-3. A few minutes later it's live at `https://<your-username>.github.io/rushbrooke-partners/`.
+This is already done. The site lives in **`Luc1oN/RLTCC`** and is served by GitHub
+Pages from the `main` branch, root folder, at:
 
-### Custom subdomain
+**https://luc1on.github.io/RLTCC/**
 
-`CNAME` in this repo is already set to `partners.rushbrooketennis.com`.
+To update it: edit a file on github.com, commit, and the site rebuilds itself in a
+minute or two. Nothing else to run.
+
+It is up but deliberately **not discoverable**: `index.html` still carries a `noindex`
+tag and the page still shows the draft bar, so search engines skip it and anyone who
+opens it can see it is not final. Both come off together when VAT is confirmed — see
+"Before this goes live" above.
+
+### Custom subdomain — do this second, not first
+
+The domain is parked in **`CNAME.txt`** rather than `CNAME`, on purpose. If a file
+called exactly `CNAME` is present before the DNS record exists, GitHub redirects the
+working `github.io` address to a domain that doesn't resolve yet, and the site appears
+broken. So: set up DNS first, then rename the file.
 
 Wherever `rushbrooketennis.com` is managed, add one DNS record:
 
 | Type  | Name       | Value                    |
 |-------|------------|--------------------------|
-| CNAME | `partners` | `<your-username>.github.io.` |
+| CNAME | `partners` | `luc1on.github.io.` |
 
-Then in Settings → Pages, put `partners.rushbrooketennis.com` in **Custom domain**
-and tick **Enforce HTTPS** once the certificate has issued (can take an hour).
+Once that record has spread (usually minutes, sometimes a few hours), rename
+`CNAME.txt` to `CNAME` in this repo, then in Settings → Pages put
+`partners.rushbrooketennis.com` in **Custom domain** and tick **Enforce HTTPS** once
+the certificate has issued. Then change the `og:image` line near the top of
+`index.html` to the new domain, so link previews keep working.
 
 Leave the main WordPress site alone — just add a link to
 `partners.rushbrooketennis.com` from its menu.
@@ -148,7 +161,7 @@ assets/img/interior-banners.jpg concept mockup — hallway banners, branding rem
 assets/img/named-facilities.jpg concept mockup — seating plaque, branding removed
 assets/img/crest-*.png         the crest, exported from the 2017 Illustrator source
 tools/neutralise.py            the script that stripped the branding out of the mockups
-CNAME                          the custom subdomain
+CNAME.txt                      the custom subdomain, parked until DNS is set up
 .nojekyll                      tells GitHub Pages not to process the files
 ```
 
