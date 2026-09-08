@@ -47,12 +47,12 @@ const CONFIG = {
     clubSite: "https://www.rushbrooketennis.com",
   },
 
-  /* Where the enquiry form sends. Leave "" and the form opens the prospect's
-     own email app with everything already filled in — that works today with no
-     account and no setup. If you'd rather enquiries landed in your inbox
-     automatically, sign up at formspree.io, create a form, and paste its
-     address between the quotes, e.g. "https://formspree.io/f/abcdwxyz". */
-  formEndpoint: "",
+  /* Where the enquiry form sends. Enquiries POST here and land straight in the
+     inbox tied to this Formspree form — the prospect never leaves the page.
+     Leave "" instead and the form falls back to opening the prospect's own
+     email app with everything pre-filled (works with no account, but needs
+     them to press send themselves). */
+  formEndpoint: "https://formspree.io/f/myeynqnp",
 
 
   /* --------------------------------------------------------------------------

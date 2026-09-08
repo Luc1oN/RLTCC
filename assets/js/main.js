@@ -434,7 +434,12 @@
         email: $('#f-email').value.trim(),
         phone: $('#f-phone').value.trim(),
         interest: interest.value || 'Not sure yet',
-        message: $('#f-message').value.trim()
+        message: $('#f-message').value.trim(),
+        // Formspree reads these two specially: _subject becomes the email's
+        // subject line (so the inbox is scannable at a glance), and having a
+        // field literally named "email" makes Formspree set Reply-To to it —
+        // reply in the inbox and it goes straight to the prospect.
+        _subject: 'Partnership enquiry — ' + $('#f-business').value.trim()
       };
 
       if (CONFIG.formEndpoint) {
