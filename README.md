@@ -29,20 +29,25 @@ automatically.
 
 ## Before this goes live
 
-Four things, in the order they'll probably clear:
+One thing left:
 
-1. **VAT.** Every price on the site is labelled "exclusive of VAT". Until the
-   accountant confirms the treatment in writing, leave `draftNotice: true` in
-   `config.js` and don't share the link publicly.
-2. **Tournament pricing.** The three tournament prices in `config.js` are the ones
-   from the prospectus draft. The Commercial Programme Architecture note (§2) says
-   the figures that went to Committee are different. There's a long comment above
-   that section spelling out both. Pick one and edit the numbers.
-3. **Your phone number.** `contact.phone` is `null`, so no phone line shows. Set it
-   when you've decided which number to publish.
-4. **Remove the noindex tag.** In `index.html`, near the top, delete the line
+1. **VAT.** Every price on the site is labelled "exclusive of VAT", which holds
+   either way this lands. Queried with the accountant as of 2026-09-08; Shane
+   believes it's vatable (each tier is paid placement in exchange for payment,
+   not a no-strings donation), but that's not the same as the accountant's
+   written confirmation the prospectus calls for. Until that written word
+   comes back, leave `draftNotice: true` in `config.js` and don't share the
+   link publicly.
+
+Once that's in writing:
+
+2. **Remove the noindex tag.** In `index.html`, near the top, delete the line
    `<meta name="robots" content="noindex, nofollow">`. Until that's gone, Google
-   will not list the site. Then set `draftNotice: false`.
+   will not list the site. Then set `draftNotice: false` in `config.js`.
+
+Done already: tournament pricing (2026-09-08, Shane confirmed the prospectus
+draft's €2,000 / €500 / €200 over the Architecture note's alternative figures)
+and the phone number (`contact.phone` in `config.js`).
 
 ---
 

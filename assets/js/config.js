@@ -19,11 +19,18 @@ const CONFIG = {
      draft. Change true to false when the site is cleared to go live.
 
      Reminder of what has to clear first (Gates to Final, prospectus p.11):
-       - VAT position confirmed in writing by the accountant
+       - VAT position confirmed IN WRITING by the accountant. Status as of
+         2026-09-08: queried; Shane believes it's vatable (each tier is paid
+         placement — a wall plaque, a court board — in exchange for payment,
+         which is the standard "supply for consideration" test, not a
+         no-strings donation), but the accountant hasn't confirmed it in
+         writing yet. Every price already reads "exclusive of VAT," which
+         holds either way — flip this switch the day that confirmation lands,
+         nothing else on the site needs to change for it.
        - every third-party logo removed from any imagery  (already done here —
          no third-party logo or name appears anywhere on this site)
        - Committee adopts the Branding Standards
-       - tournament rates reconciled (see section 5 below)
+       - tournament rates reconciled — DONE 2026-09-08, see section 5 below
      Also remove the <meta name="robots" content="noindex..."> line in
      index.html when you go live, or search engines will keep ignoring the site.
   ------------------------------------------------------------------------- */
@@ -34,15 +41,14 @@ const CONFIG = {
   /* --------------------------------------------------------------------------
      2. WHO PROSPECTS CONTACT
      --------------------------------------------------------------------------
-     phone: leave as null until you decide which number to publish. While it is
-     null the phone line simply does not appear — nothing looks broken.
-     Set it like this when you're ready:   phone: "+353 87 000 0000",
+     phone: set to null instead to hide the phone line entirely — nothing
+     looks broken, it just doesn't appear.
   ------------------------------------------------------------------------- */
   contact: {
     name:  "Shane Connolly",
     role:  "Public Relations & Commercial Partnerships",
     email: "shanedenis.connolly@gmail.com",  // ← swap for a club address if you set one up
-    phone: null,                              // ← e.g. "+353 87 000 0000"
+    phone: "085 868 0350",
     address: "Rushbrooke, Cobh, Co. Cork",
     clubSite: "https://www.rushbrooketennis.com",
   },
@@ -148,20 +154,13 @@ const CONFIG = {
   /* --------------------------------------------------------------------------
      5. TOURNAMENT PARTNERSHIPS
      --------------------------------------------------------------------------
-     ⚠ THE PRICES IN THIS SECTION ARE NOT SETTLED. Decide before you publish.
-
-     The figures below are the ones in the Partnership Prospectus draft, which
-     took them from the designed tournament one-pager:
-         Tournament Partner €2,000 · Event Partner €500 · Court naming €200
-
-     The Commercial Programme Architecture note (Sept 2026, §2) says the version
-     that actually went to Committee — Strategy v2 §5.2 — is different:
-         Title €2,500 · Supporting partner €350 · Court naming €200
-     and splits the title into three: Senior Open €2,500, Junior Open €1,500,
-     Easter Open €1,200 (Senior + Easter bundled at €3,200).
-
-     Pick one, then edit the numbers below and the prospectus to match. Nothing
-     else on the site needs to change.
+     Settled 2026-09-08: Shane confirmed the prospectus draft's figures —
+     Tournament Partner €2,000 · Event Partner €500 · Court naming €200 — over
+     the different set in the Commercial Programme Architecture note (Sept
+     2026, §2: Title €2,500 / Supporting partner €350 / Court naming €200,
+     split across three Opens). The designed tournament one-pager referenced in
+     that note still needs reprinting to match, if it hasn't been already —
+     that's a paper/PDF fix outside this repo, not something this site can do.
   ------------------------------------------------------------------------- */
   tournamentTiers: [
     {
