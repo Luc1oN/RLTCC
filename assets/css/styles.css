@@ -344,8 +344,6 @@ p{margin:0 0 1em}
 .tier__note{font-size:13px; color:var(--muted); margin:0 0 12px}
 .tier__foot .btn{width:100%}
 
-.vat{margin:22px 0 0; font-size:13px; color:var(--muted)}
-
 /* ---------- Tournament mini-cards ---------- */
 .minitiers{display:grid; gap:12px; margin-top:24px}
 @media (min-width:760px){ .minitiers{grid-template-columns:repeat(3,1fr)} }

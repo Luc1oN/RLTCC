@@ -13,29 +13,21 @@
 const CONFIG = {
 
   /* --------------------------------------------------------------------------
-     1. BEFORE YOU PUBLISH
+     1. DRAFT BAR — off. The site is live.
      --------------------------------------------------------------------------
      draftNotice: shows a slim bar at the top of the page saying the site is a
-     draft. Change true to false when the site is cleared to go live.
+     draft. Set back to true (and write a reason into draftNoticeText) if you
+     ever need to pull pricing out of public view again — a repricing, a rule
+     change — without taking the whole site down.
 
-     Reminder of what has to clear first (Gates to Final, prospectus p.11):
-       - VAT position confirmed IN WRITING by the accountant. Status as of
-         2026-09-08: queried; Shane believes it's vatable (each tier is paid
-         placement — a wall plaque, a court board — in exchange for payment,
-         which is the standard "supply for consideration" test, not a
-         no-strings donation), but the accountant hasn't confirmed it in
-         writing yet. Every price already reads "exclusive of VAT," which
-         holds either way — flip this switch the day that confirmation lands,
-         nothing else on the site needs to change for it.
-       - every third-party logo removed from any imagery  (already done here —
-         no third-party logo or name appears anywhere on this site)
-       - Committee adopts the Branding Standards
-       - tournament rates reconciled — DONE 2026-09-08, see section 5 below
-     Also remove the <meta name="robots" content="noindex..."> line in
-     index.html when you go live, or search engines will keep ignoring the site.
+     What this was waiting on, for the record: VAT. Confirmed 2026-09-08 —
+     no VAT applies, so nothing on the site should say "exclusive of VAT"
+     (removed throughout). The <meta name="robots" content="noindex..."> tag
+     that kept search engines from listing the site has also been removed, in
+     index.html — both of those cleared together when this flipped to false.
   ------------------------------------------------------------------------- */
-  draftNotice: true,
-  draftNoticeText: "Draft — not for issue. Pricing subject to confirmation of VAT treatment.",
+  draftNotice: false,
+  draftNoticeText: "",
 
 
   /* --------------------------------------------------------------------------
@@ -74,7 +66,8 @@ const CONFIG = {
      Rates and benefits are taken word-for-word from the Partnership Prospectus
      (draft v0.1, September 2026). Don't add benefits here that aren't in the
      prospectus — the prospectus and this site have to say the same thing.
-     All prices are EXCLUSIVE of VAT. That is stated on the page automatically.
+     No VAT applies (confirmed 2026-09-08) — prices below are the full amount,
+     nothing added at invoicing.
   ------------------------------------------------------------------------- */
   annualTiers: [
     {

@@ -27,27 +27,22 @@ automatically.
 
 ---
 
-## Before this goes live
+## Launch status
 
-One thing left:
+Live. Every gate that was blocking this has cleared:
 
-1. **VAT.** Every price on the site is labelled "exclusive of VAT", which holds
-   either way this lands. Queried with the accountant as of 2026-09-08; Shane
-   believes it's vatable (each tier is paid placement in exchange for payment,
-   not a no-strings donation), but that's not the same as the accountant's
-   written confirmation the prospectus calls for. Until that written word
-   comes back, leave `draftNotice: true` in `config.js` and don't share the
-   link publicly.
+- **VAT** — confirmed 2026-09-08: no VAT applies. Every "exclusive of VAT" line has
+  been removed from the site; the prices shown are the full amount.
+- **Tournament pricing** — settled 2026-09-08: €2,000 / €500 / €200, the prospectus
+  draft's figures, over the Commercial Programme Architecture note's alternative.
+- **Phone number** — added (`contact.phone` in `config.js`).
+- **Search engines** — the `noindex` tag is gone from `index.html` and the draft bar
+  is off (`draftNotice: false` in `config.js`), so the site is publicly discoverable.
 
-Once that's in writing:
-
-2. **Remove the noindex tag.** In `index.html`, near the top, delete the line
-   `<meta name="robots" content="noindex, nofollow">`. Until that's gone, Google
-   will not list the site. Then set `draftNotice: false` in `config.js`.
-
-Done already: tournament pricing (2026-09-08, Shane confirmed the prospectus
-draft's €2,000 / €500 / €200 over the Architecture note's alternative figures)
-and the phone number (`contact.phone` in `config.js`).
+If pricing or terms ever need to come off public view again temporarily — mid
+repricing, say — set `draftNotice: true` in `config.js` and write a reason into
+`draftNoticeText`. That alone doesn't hide the site from search engines; put the
+`noindex` meta tag back in `index.html` too if that's the intent.
 
 ---
 
@@ -61,10 +56,7 @@ Pages from the `main` branch, root folder, at:
 To update it: edit a file on github.com, commit, and the site rebuilds itself in a
 minute or two. Nothing else to run.
 
-It is up but deliberately **not discoverable**: `index.html` still carries a `noindex`
-tag and the page still shows the draft bar, so search engines skip it and anyone who
-opens it can see it is not final. Both come off together when VAT is confirmed — see
-"Before this goes live" above.
+It's fully live and publicly discoverable — see "Launch status" above.
 
 ### Custom subdomain — do this second, not first
 
