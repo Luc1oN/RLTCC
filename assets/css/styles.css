@@ -416,9 +416,10 @@ p{margin:0 0 1em}
 .footer h3{font-size:18px; color:#fff; margin:0 0 4px}
 .footer a{color:#fff}
 .footer__partners{padding-bottom:26px; border-bottom:1px solid #ffffff24; margin-bottom:24px}
+/* 15 places total (see main.js) — 5 columns gives three clean rows at every
+   width wide enough to hold them; 3 columns (five rows) below that. */
 .slots{list-style:none; display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:16px 0 0; padding:0}
 @media (min-width:560px){ .slots{grid-template-columns:repeat(5,1fr)} }
-@media (min-width:900px){ .slots{grid-template-columns:repeat(9,1fr)} }
 .slots li{
   aspect-ratio:3/2; border:1px dashed #ffffff40; border-radius:6px; display:grid; place-content:center;
   text-align:center; font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; color:#a5a0cc; padding:4px;

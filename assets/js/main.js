@@ -358,11 +358,17 @@
     var fa = $('#footer-address');
     if (fa) fa.textContent = c.address;
 
-    // Nine empty places on the Friends wall — filled in as real partners sign.
+    // The wall itself carries one plaque per annual partner across every tier
+    // whose benefits mention it (Premier Club Partner, Club Partner, Friends of
+    // Rushbrooke — see config.js) — 1 + 5 + 9 = 15, matching the mockup. Sum
+    // from config rather than hardcode, so a tier count change here follows
+    // automatically instead of drifting out of sync with the wall photo.
     var slots = $('#partner-slots');
     if (slots) {
-      var friends = CONFIG.annualTiers.filter(function (t) { return t.id === 'friends'; })[0];
-      var n = friends ? friends.total : 9;
+      var WALL_TIER_IDS = ['premier', 'club', 'friends'];
+      var n = CONFIG.annualTiers
+        .filter(function (t) { return WALL_TIER_IDS.indexOf(t.id) !== -1; })
+        .reduce(function (sum, t) { return sum + t.total; }, 0);
       for (var i = 0; i < n; i++) {
         var li = document.createElement('li');
         li.textContent = 'Your business here';
