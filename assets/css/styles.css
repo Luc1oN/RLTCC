@@ -409,7 +409,7 @@ p{margin:0 0 1em}
 .enquire__card li{padding:9px 0; border-top:1px solid #ffffff24; font-size:15px; word-break:break-word}
 .enquire__card li b{display:block; font:600 11px/1 var(--sans); letter-spacing:.13em; text-transform:uppercase; color:#8fae91; margin-bottom:4px}
 .enquire__card a{color:#fff; text-decoration:underline; text-decoration-color:#ffffff59}
-.enquire__card .card__quote{font-family:var(--serif); font-size:17px; line-height:1.35; color:#dfe9de; margin:0}
+.enquire__card ul{margin-bottom:0}
 
 /* ---------- Footer ---------- */
 .footer{background:var(--navy-deep); color:#dcd9f0; padding:40px 0 32px; font-size:14.5px}

@@ -346,8 +346,7 @@
         '<img class="card__crest" src="assets/img/crest-256.png" width="256" height="256" alt="" aria-hidden="true">' +
         '<h3>' + esc(c.name) + '</h3>' +
         '<p class="role">' + esc(c.role) + '</p>' +
-        '<ul>' + items + '</ul>' +
-        '<p class="card__quote">You will be dealing with me, not a committee inbox.</p>';
+        '<ul>' + items + '</ul>';
     }
 
     var fl = $('#footer-links');

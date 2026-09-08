@@ -40,7 +40,7 @@ const CONFIG = {
   ------------------------------------------------------------------------- */
   contact: {
     name:  "Shane Connolly",
-    role:  "PRO & Commercial Partnerships",
+    role:  "Public Relations & Commercial Partnerships",
     email: "shanedenis.connolly@gmail.com",  // ← swap for a club address if you set one up
     phone: null,                              // ← e.g. "+353 87 000 0000"
     address: "Rushbrooke, Cobh, Co. Cork",
