@@ -1,0 +1,6 @@
+# This site is committee/discussion collateral, not yet cleared for public
+# search discovery — see the note above the <meta name="robots"> tag in
+# index.html. Delete this file (or replace it with a normal allow-all) at the
+# same time that tag comes out.
+User-agent: *
+Disallow: /

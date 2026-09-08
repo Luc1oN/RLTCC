@@ -29,20 +29,30 @@ automatically.
 
 ## Launch status
 
-Live. Every gate that was blocking this has cleared:
+The content is finished; the launch isn't. Every content gate has cleared:
 
 - **VAT** — confirmed 2026-09-08: no VAT applies. Every "exclusive of VAT" line has
   been removed from the site; the prices shown are the full amount.
 - **Tournament pricing** — settled 2026-09-08: €2,000 / €500 / €200, the prospectus
   draft's figures, over the Commercial Programme Architecture note's alternative.
 - **Phone number** — added (`contact.phone` in `config.js`).
-- **Search engines** — the `noindex` tag is gone from `index.html` and the draft bar
-  is off (`draftNotice: false` in `config.js`), so the site is publicly discoverable.
 
-If pricing or terms ever need to come off public view again temporarily — mid
-repricing, say — set `draftNotice: true` in `config.js` and write a reason into
-`draftNoticeText`. That alone doesn't hide the site from search engines; put the
-`noindex` meta tag back in `index.html` too if that's the intent.
+But the site itself is deliberately being kept **out of search results and off
+crawlers' radar** (as of 2026-09-08): Shane wants it as discussion and committee
+collateral, reachable by link, until he decides to publish it more widely. Two
+things enforce that:
+
+- `<meta name="robots" content="noindex, nofollow">` in `index.html`
+- `robots.txt` at the repo root, disallowing all crawlers
+
+**To actually publish it** — make it findable via Google and open to being crawled —
+remove both of those. Nothing else about the site needs to change to do that; the
+content itself has been publish-ready since 2026-09-08.
+
+The draft bar (`draftNotice` in `config.js`) is a separate, third thing — it's off,
+and unrelated to search visibility. It exists for if the page's own *content* ever
+needs flagging as unfinished again (a repricing mid-edit, say), not for controlling
+who can find the site.
 
 ---
 
@@ -56,7 +66,8 @@ Pages from the `main` branch, root folder, at:
 To update it: edit a file on github.com, commit, and the site rebuilds itself in a
 minute or two. Nothing else to run.
 
-It's fully live and publicly discoverable — see "Launch status" above.
+It's reachable by anyone with the link, but deliberately kept out of search
+results — see "Launch status" above.
 
 ### Custom subdomain — do this second, not first
 

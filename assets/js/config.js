@@ -13,18 +13,20 @@
 const CONFIG = {
 
   /* --------------------------------------------------------------------------
-     1. DRAFT BAR — off. The site is live.
+     1. DRAFT BAR — off. The content itself is finished, not the launch.
      --------------------------------------------------------------------------
      draftNotice: shows a slim bar at the top of the page saying the site is a
-     draft. Set back to true (and write a reason into draftNoticeText) if you
-     ever need to pull pricing out of public view again — a repricing, a rule
-     change — without taking the whole site down.
+     draft. Left off on purpose: pricing, VAT and the phone number are all
+     settled (2026-09-08), so nothing about the page's content is a draft any
+     more — but the site itself isn't public yet. Shane wants it as committee
+     and discussion collateral for now, reachable by link only, until he
+     decides to publish it. That's handled separately from this bar — see
+     the <meta name="robots"> tag and robots.txt at the repo root, both of
+     which currently block search engines and well-behaved crawlers. Remove
+     both of those (not this bar) when it's cleared to be found publicly.
 
-     What this was waiting on, for the record: VAT. Confirmed 2026-09-08 —
-     no VAT applies, so nothing on the site should say "exclusive of VAT"
-     (removed throughout). The <meta name="robots" content="noindex..."> tag
-     that kept search engines from listing the site has also been removed, in
-     index.html — both of those cleared together when this flipped to false.
+     Set draftNotice back to true only if the page's own content needs
+     flagging as unfinished again — a repricing mid-edit, a rule change.
   ------------------------------------------------------------------------- */
   draftNotice: false,
   draftNoticeText: "",
