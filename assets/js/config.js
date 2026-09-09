@@ -66,10 +66,33 @@ const CONFIG = {
      4. ANNUAL PARTNERSHIPS
      --------------------------------------------------------------------------
      Rates and benefits are taken word-for-word from the Partnership Prospectus
-     (draft v0.1, September 2026). Don't add benefits here that aren't in the
-     prospectus — the prospectus and this site have to say the same thing.
+     (draft v0.1, September 2026), REVISED 2026-09-09 against a rate-card
+     analysis built from real 2026 sales — see below for what changed and why.
      No VAT applies (confirmed 2026-09-08) — prices below are the full amount,
      nothing added at invoicing.
+
+     Changed 2026-09-09:
+       - Club Partner founding rate: €1,500 → €2,000. A 2026 members'-event
+         sponsor already paid €2,000 for tournament title, top grades and
+         centre court, and has signalled Club Partner for 2027 with first
+         refusal. Pricing this tier below what he already paid would make his
+         second year a downgrade and imply the 2026 price was padded.
+       - Friends of Rushbrooke: 9 places → 8, founding rate €450 → €500.
+       - Junior Programme Partner now carries a wall benefit it didn't have
+         before (flagged below) — the arithmetic only works with it included.
+
+     FLAGGED, not just applied — check this one: adding "place on the wall"
+     to Junior Programme Partner is a real benefit change, not a copy fix,
+     and it isn't in the original prospectus. It's here because 1 (Premier) +
+     5 (Club) + 1 (Junior) + 8 (Friends) = 15, which is the wall's actual
+     physical capacity (see assets/img/wall.jpg — a real 5×3 grid) — and
+     because the site already claimed "every annual partner... gets one" on
+     the wall before this revision, which was only ever true by coincidence
+     (1 + 5 + 9 also happens to equal 15, without Junior). Dropping Friends
+     to 8 breaks that coincidence, so either Junior genuinely gets a plaque
+     now, or the copy claiming "every annual partner gets one" needs to
+     change, or Friends should stay at 9. Confirm which before this goes
+     back out — reverting is a one-line change either way.
   ------------------------------------------------------------------------- */
   annualTiers: [
     {
@@ -97,8 +120,8 @@ const CONFIG = {
       name: "Club Partner",
       total: 5,
       sold: 0,
-      founding: 1500,
-      standard: 2000,
+      founding: 2000,
+      standard: 2500,
       blurb: "One court, named for your business, for the season.",
       benefits: [
         "One court named for your business for the season (Courts 2–6)",
@@ -125,14 +148,15 @@ const CONFIG = {
         "Recognition at every junior event and prize-giving",
         "A named bursary — coaching and membership for children whose families would otherwise struggle to cover it",
         "A written annual report setting out participation numbers, bursary places and schools reached, in a form you can use in your own community or CSR reporting",
+        "Place on the Friends of Rushbrooke wall",  // ← added 2026-09-09, see the flag above
       ],
     },
     {
       id: "friends",
       name: "Friends of Rushbrooke",
-      total: 9,
+      total: 8,
       sold: 0,
-      founding: 450,
+      founding: 500,
       standard: 600,
       blurb: "For local businesses who want to be part of the club without a large commitment.",
       footnote: "€40 a month by direct debit if that suits better than a single payment.",
@@ -149,38 +173,63 @@ const CONFIG = {
   /* --------------------------------------------------------------------------
      5. TOURNAMENT PARTNERSHIPS
      --------------------------------------------------------------------------
-     Settled 2026-09-08: Shane confirmed the prospectus draft's figures —
-     Tournament Partner €2,000 · Event Partner €500 · Court naming €200 — over
-     the different set in the Commercial Programme Architecture note (Sept
-     2026, §2: Title €2,500 / Supporting partner €350 / Court naming €200,
-     split across three Opens). The designed tournament one-pager referenced in
-     that note still needs reprinting to match, if it hasn't been already —
-     that's a paper/PDF fix outside this repo, not something this site can do.
+     REVISED 2026-09-09, replacing the flat "Tournament Partner covers every
+     event" structure with a separate title per Open. The 2027 Opens (Senior
+     ~450 players, Junior a national T1250 event, Easter ~350) are a
+     materially bigger asset than the 2026 members' events that priced
+     against, and a single blanket "Tournament Partner" tier undersold that
+     difference. This is now the third distinct tournament rate card this
+     project has held — prospectus draft, then the Commercial Programme
+     Architecture note, now this one — so if a designed tournament one-pager
+     exists outside this repo, it needs reprinting to match. That's a
+     paper/PDF fix, not something this site can do.
+
+     Selling guardrail (not enforced by the site — there's no cart to stack
+     grades in — but worth knowing when quoting by phone or email): keep
+     what any one tournament sponsor spends below that event's title price.
+     No stack of Grade Partner slots should add up to more than the title.
   ------------------------------------------------------------------------- */
   tournamentTiers: [
     {
-      id: "tournament-partner",
-      name: "Tournament Partner",
+      id: "senior-open-title",
+      name: "Senior Open Title",
       total: 1,
       sold: 0,
-      price: 2000,
-      blurb: "All singles grades included. Named on every draw, the order of play and all club communications for the tournament. Option to present on finals day. First refusal for the following season.",
+      price: 2500,
+      blurb: "All singles grades at the Senior Open named for your business — carried on every draw, the order of play and all club communications for the tournament. Presentation on Finals Day. First refusal for 2028.",
     },
     {
-      id: "event-partner",
-      name: "Event Partner",
+      id: "junior-open-title",
+      name: "Junior Open Title",
+      total: 1,
+      sold: 0,
+      price: 1500,
+      blurb: "All singles grades at the Junior Open — a national T1250 event — named for your business, carried on every draw and the order of play. We are proud to run an inclusive tournament that welcomes juniors; alcohol branding has no place here.",
+    },
+    {
+      id: "easter-open-title",
+      name: "Easter Open Title",
+      total: 1,
+      sold: 0,
+      price: 1200,
+      footnote: "Already hold the Senior Open Title? Add this one for €700 more, not the full price.",
+      blurb: "All singles grades at the Easter Open named for your business, carried on the draw and the order of play.",
+    },
+    {
+      id: "grade-partner",
+      name: "Grade Partner",
       total: 6,
       sold: 0,
-      price: 500,
+      price: 400,
       unit: "per grade",
       blurb: "A grade named for your business — “[Company] Grade 3/4 Men’s Singles” — carried on the draw and the order of play, and named at that grade’s final and at prize-giving.",
     },
     {
-      id: "court-naming",
-      name: "Court naming",
+      id: "tournament-court-board",
+      name: "Tournament court board",
       total: 3,
       sold: 0,
-      price: 200,
+      price: 400,
       unit: "tournament week only",
       blurb: "Available on Courts 7–9 only — courts named under an annual Club Partnership (1–6) are not available for tournament-week naming. Your net board goes up for the week, produced by the club to the standard template from artwork you supply.",
     },

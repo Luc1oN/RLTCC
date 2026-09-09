@@ -33,9 +33,16 @@ The content is finished; the launch isn't. Every content gate has cleared:
 
 - **VAT** — confirmed 2026-09-08: no VAT applies. Every "exclusive of VAT" line has
   been removed from the site; the prices shown are the full amount.
-- **Tournament pricing** — settled 2026-09-08: €2,000 / €500 / €200, the prospectus
-  draft's figures, over the Commercial Programme Architecture note's alternative.
 - **Phone number** — added (`contact.phone` in `config.js`).
+- **Pricing** — revised 2026-09-09 against a rate-card analysis built from real
+  2026 sales. This is the third rate card this project has held (prospectus
+  draft, then the Commercial Programme Architecture note, now this one) — see
+  the dated comments above `annualTiers` and `tournamentTiers` in `config.js`
+  for exactly what changed and why. **One open flag from that revision**:
+  Junior Programme Partner now lists a wall-plaque benefit it didn't have
+  before, added so the wall math (1 + 5 + 1 + 8 = 15) matches the wall's real
+  15-plaque capacity now that Friends has dropped from 9 to 8. That's a real
+  benefit change, not a copy fix — confirm it's actually intended.
 
 But the site itself is deliberately being kept **out of search results and off
 crawlers' radar** (as of 2026-09-08): Shane wants it as discussion and committee

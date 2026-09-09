@@ -292,6 +292,7 @@
           (t.unit ? ' <span class="mini__unit">' + esc(t.unit) + '</span>' : '') + '</p>' +
         '<p class="mini__avail">' + (left === 0 ? 'Fully committed' : left + ' available') + '</p>' +
         '<p>' + esc(t.blurb) + '</p>' +
+        (t.footnote ? '<p class="mini__note">' + esc(t.footnote) + '</p>' : '') +
         '<a class="btn btn--ghost btn--sm" href="#enquire" data-interest="' + esc(t.name) + '">Enquire</a>';
       host.appendChild(el);
     });
@@ -358,13 +359,14 @@
     if (fa) fa.textContent = c.address;
 
     // The wall itself carries one plaque per annual partner across every tier
-    // whose benefits mention it (Premier Club Partner, Club Partner, Friends of
-    // Rushbrooke — see config.js) — 1 + 5 + 9 = 15, matching the mockup. Sum
-    // from config rather than hardcode, so a tier count change here follows
-    // automatically instead of drifting out of sync with the wall photo.
+    // whose benefits mention it (Premier Club Partner, Club Partner, Junior
+    // Programme Partner, Friends of Rushbrooke — see config.js) — 1 + 5 + 1 + 8
+    // = 15, matching the mockup. Sum from config rather than hardcode, so a
+    // tier count change here follows automatically instead of drifting out of
+    // sync with the wall photo.
     var slots = $('#partner-slots');
     if (slots) {
-      var WALL_TIER_IDS = ['premier', 'club', 'friends'];
+      var WALL_TIER_IDS = ['premier', 'club', 'junior', 'friends'];
       var n = CONFIG.annualTiers
         .filter(function (t) { return WALL_TIER_IDS.indexOf(t.id) !== -1; })
         .reduce(function (sum, t) { return sum + t.total; }, 0);
