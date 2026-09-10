@@ -41,7 +41,7 @@ const CONFIG = {
   contact: {
     name:  "Shane Connolly",
     role:  "Public Relations & Commercial Partnerships",
-    email: "rltctreasurer@gmail.com",  // club address — shown on the contact card and in the footer
+    email: "rltccpartnerships@gmail.com",  // club address — shown on the contact card and in the footer
     phone: "085 868 0350",
     address: "Rushbrooke, Cobh, Co. Cork",
     clubSite: "https://www.rushbrooketennis.com",
