@@ -52,7 +52,7 @@ const CONFIG = {
      Leave "" instead and the form falls back to opening the prospect's own
      email app with everything pre-filled (works with no account, but needs
      them to press send themselves). */
-  formEndpoint: "https://formspree.io/f/myeynqnp",
+  formEndpoint: "https://formspree.io/f/mbgjwagd",
 
 
   /* --------------------------------------------------------------------------
