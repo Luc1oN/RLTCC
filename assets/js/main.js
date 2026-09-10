@@ -258,7 +258,12 @@
           t.benefits.map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') +
         '</ul></div></div>' +
         '<div class="tier__foot">' +
-          (t.footnote ? '<p class="tier__note">' + esc(t.footnote) + '</p>' : '') +
+          // t.footnote may be one string or an array of them (Junior Programme
+          // Partner needs two lines) — [].concat() normalises either to an
+          // array so both render the same way, one <p> per line.
+          (t.footnote ? [].concat(t.footnote).map(function (f) {
+            return '<p class="tier__note">' + esc(f) + '</p>';
+          }).join('') : '') +
           '<a class="btn ' + (gone ? 'btn--ghost' : 'btn--green') + '" href="#enquire" data-interest="' + esc(t.name) + '">' +
             (gone ? 'Join the waiting list' : 'Enquire about this') +
           '</a>' +
