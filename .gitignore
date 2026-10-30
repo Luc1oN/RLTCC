@@ -1,0 +1,5 @@
+.DS_Store
+.claude/
+
+# Local-only tooling; not part of the published site
+/tools/

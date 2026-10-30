@@ -1,0 +1,4 @@
+# Crawlers are currently disallowed. Remove this file together with the
+# <meta name="robots"> tag in index.html to allow public search discovery.
+User-agent: *
+Disallow: /
