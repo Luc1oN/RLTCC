@@ -11,8 +11,9 @@ install. Every change can be made from GitHub's website, including on a phone.
 
 **`assets/js/config.js`**
 
-Prices, availability, benefits, contact details and the draft banner all live in that
-one file, with plain-English comments beside each. To change something:
+Prices, availability, benefits, the founding-rate deadline, contact details and the
+draft banner all live in that one file, with plain-English comments beside each. To
+change something:
 
 1. Open the repo on github.com and click `assets` → `js` → `config.js`
 2. Click the pencil icon (top right)
@@ -24,6 +25,14 @@ The site updates itself a minute or two later.
 **After a sale**, find the tier in `annualTiers` and change `sold: 0` to `sold: 1`.
 The card's "5 of 5 remaining", the row of dots and the enquiry dropdown all follow
 automatically.
+
+`config.js` is the single source of truth for the commercial figures on the page:
+prices, places, benefits, tournament terms, the founding deadline and the contact
+details. Two of them are also written into `index.html` as plain-text fallbacks, shown
+if JavaScript is off, and `main.js` replaces them with the `config.js` values: the
+founding deadline (`foundingDeadline`) and the number of annual places, which the page
+adds up from the `total` of each annual tier. Change them in `config.js`; if you change
+either, update the matching fallback text in `index.html` in the same commit.
 
 ---
 
@@ -83,13 +92,15 @@ Leave the main WordPress site alone — just add a link to
 
 ## The enquiry form
 
-Out of the box, pressing **Send enquiry** opens the prospect's own email app with the
-whole enquiry already written out, addressed to you. That works on GitHub Pages with
-no account and nothing to set up.
+Pressing **Send enquiry** posts the enquiry (name, business, email, optional phone, what
+interests them and an optional message) to the Formspree form whose address is set in
+`formEndpoint` in `config.js`. Formspree delivers it to the inbox linked to that form,
+and the prospect stays on the page.
 
-If you'd rather enquiries arrived in your inbox without the prospect having to press
-send twice: create a free form at [formspree.io](https://formspree.io), copy its
-address, and paste it into `formEndpoint` in `config.js`. Nothing else changes.
+To use a different Formspree form, replace the address in `formEndpoint`. If you set
+`formEndpoint` to `""`, the form falls back to opening the prospect's own email app with
+the whole enquiry already written out, addressed to the contact email in `config.js`.
+That needs no account, but the prospect has to press send themselves.
 
 ---
 
@@ -110,8 +121,8 @@ third-party branding appears anywhere on the site.
 
 **Nothing else goes on this site**: no third-party logo, no invented company name, no
 testimonial, no partner logo. An invented but plausible business name is as misleading
-as a real one. The nine slots in the footer stay empty and say "Your business here"
-until real partners have signed.
+as a real one. The footer slots (one per annual place, fifteen at present) stay empty
+and say "Your business here" until real partners have signed.
 
 ### Replacing a mockup with a real photograph
 

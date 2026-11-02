@@ -64,9 +64,14 @@ const CONFIG = {
      `standard` the rate after it; `total` is the number of places and `sold`
      is how many are gone. `footnote` (optional) is one line of text, or a
      list of lines, shown under the benefits list.
-     No VAT applies — prices below are the full amount, nothing added at
-     invoicing.
+
+     foundingDeadline is the last day founding rates are offered, written as
+     the page should read it. The annual partnerships introduction shows it.
+     The number of annual places the page mentions is added up from the
+     `total` of each tier below, so there is nothing separate to keep in step.
   ------------------------------------------------------------------------- */
+  foundingDeadline: "31 March 2027",
+
   annualTiers: [
     {
       id: "premier",
@@ -79,6 +84,7 @@ const CONFIG = {
       benefits: [
         "Centre Court (Court 3) named for your business for the season",
         "Primary position on the sponsor board, the partners page and club communications",
+        "Place on the Friends of Rushbrooke wall",
         "Named in association with all three Open tournaments — your logo on every draw sheet and order of play, named in tournament announcements and results posts, sponsor board present throughout, and an invitation to the Finals Day presentation",
         "First refusal on the Senior Open Title at €2,500, exercisable to 31 December 2026",
         "A hosted corporate day at the club — the courts and clubhouse for your team",
@@ -119,6 +125,7 @@ const CONFIG = {
         "Recognition at all junior events and prize-givings",
         "Two places at the Partners’ Evening",
         "Sponsor board and partners page",
+        "Place on the Friends of Rushbrooke wall",
         "First refusal on the Junior Open Title at €1,500, to 31 December 2026",
       ],
       footnote: [

@@ -16,6 +16,31 @@
   };
 
   /* =========================================================================
+     0. PROGRAMME FIGURES
+     ---------------------------------------------------------------------
+     The founding deadline and the number of annual places are written once,
+     in config.js. Where the page mentions them, index.html carries the same
+     text as a fallback, and this swaps in the config value. An older
+     config.js with no foundingDeadline leaves the fallback text as it is.
+     ====================================================================== */
+  (function figures() {
+    var WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight',
+      'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen',
+      'seventeen', 'eighteen', 'nineteen', 'twenty'];
+    var places = (CONFIG.annualTiers || []).reduce(function (sum, t) { return sum + (t.total || 0); }, 0);
+    if (places > 0) {
+      var word = places < WORDS.length ? WORDS[places] : String(places);
+      $$('[data-annual-total]').forEach(function (el) {
+        el.textContent = el.hasAttribute('data-cap') ? word.charAt(0).toUpperCase() + word.slice(1) : word;
+      });
+    }
+    if (CONFIG.foundingDeadline) {
+      $$('[data-founding-deadline]').forEach(function (el) { el.textContent = CONFIG.foundingDeadline; });
+    }
+  })();
+
+
+  /* =========================================================================
      1. DRAFT BAR
      ====================================================================== */
   (function draftBar() {
